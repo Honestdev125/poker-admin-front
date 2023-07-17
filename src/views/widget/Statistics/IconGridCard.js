@@ -39,7 +39,7 @@ const IconGridCard = ({ content }) => {
                     }}
                 >
                     <Grid container alignItems="center" spacing={0}>
-                        {content?.map((item, index) => (
+                        {content.map((item, index) => (
                             <Grid key={index} item xs={12} sm={6} sx={blockSX}>
                                 <Grid container alignItems="center" spacing={1} justifyContent={matchDownXs ? 'space-between' : 'center'}>
                                     <Grid item>{item.icon}</Grid>

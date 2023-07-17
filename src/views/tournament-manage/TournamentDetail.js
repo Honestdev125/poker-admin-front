@@ -129,7 +129,8 @@ const TournamentDetail = () => {
                 values: resetData
             });
         }
-    }, [data]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data, detailId]);
 
     return (
         <form onSubmit={handleSubmit}>

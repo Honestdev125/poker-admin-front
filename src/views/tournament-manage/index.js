@@ -38,7 +38,7 @@ const TournamentListHome = () => {
     useEffect(() => {
         dispatch(getDataCreateSuccess(pageNum, rowsPerPage, searchString));
         dispatch(getGameTypeSuccess());
-    }, [pageNum, rowsPerPage, applyFilter]);
+    }, [pageNum, rowsPerPage, applyFilter, dispatch, searchString]);
     const handleClose = (value) => {
         setAnchorEl(null);
         switch (value) {

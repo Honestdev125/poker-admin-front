@@ -73,6 +73,7 @@ const TournamentList = () => {
         dispatch(getGameTypeSuccess());
         dispatch(getTournamentTypeSuccess());
         dispatch(getDataCreateSuccess());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);
 
     return (
