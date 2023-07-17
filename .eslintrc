@@ -1,0 +1,73 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": ["airbnb", "plugin:jsx-a11y/recommended", "plugin:react-hooks/recommended", "prettier"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "moduleDirectory": ["node_modules", "src/"]
+            }
+        }
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "impliedStrict": true
+        },
+        "ecmaVersion": 12
+    },
+    "plugins": ["react", "react-hooks", "prettier"],
+    "rules": {
+        "jsx-a11y/no-autofocus": [
+            2,
+            {
+                "ignoreNonDOM": true
+            }
+        ],
+        "react/jsx-filename-extension": 0,
+        "no-param-reassign": 0,
+        "react/prop-types": 1,
+        "react/require-default-props": 0,
+        "react/no-array-index-key": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/forbid-prop-types": 0,
+        "import/order": 0,
+        "import/no-cycle": 0,
+        "no-console": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "prefer-destructuring": 0,
+        "no-shadow": 0,
+        "import/prefer-default-export": 0,
+        "react/no-unstable-nested-components": 0,
+        "prefer-regex-literals": 0,
+        "no-promise-executor-return": 0,
+        "no-unsafe-optional-chaining": 0,
+        "react/jsx-no-constructed-context-values": 0,
+        "react/jsx-no-useless-fragment": 0,
+        "react/function-component-definition": 0,
+        "react/react-in-jsx-scope": 0,
+        "import/no-named-as-default": 0,
+        "no-unused-vars": [
+            1,
+            {
+                "ignoreRestSiblings": false
+            }
+        ],
+        "prettier/prettier": [
+            2,
+            {
+                "bracketSpacing": true,
+                "printWidth": 140,
+                "singleQuote": true,
+                "trailingComma": "none",
+                "tabWidth": 4,
+                "useTabs": false,
+                "endOfLine": "auto"
+            }
+        ]
+    }
+}
