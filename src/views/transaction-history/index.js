@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // material-ui
-import { Button, Grid, InputAdornment, Menu, MenuItem, OutlinedInput, Pagination, Typography } from '@mui/material';
+import { Grid, InputAdornment, OutlinedInput, Typography } from '@mui/material';
 
 // project imports
 import UserList from './TransctionList';
@@ -14,7 +14,6 @@ import { IconSearch } from '@tabler/icons';
 // ==============================|| USER LIST STYLE 1 ||============================== //
 
 const TransactionIndex = () => {
-    useEffect(() => {}, []);
     return (
         <MainCard
             title={

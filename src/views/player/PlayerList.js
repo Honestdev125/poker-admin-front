@@ -1,14 +1,12 @@
 import React from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
-import { Grid, MenuItem, Menu, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button, Typography } from '@mui/material';
-import { IconDots } from '@tabler/icons';
+import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+
 // project imports
 import Avatar from 'ui-component/extended/Avatar';
 
-import { useDispatch, useSelector } from 'store';
 // import { getUsersListStyle1 } from 'store/slices/user';
 import { useNavigate } from 'react-router-dom';
 
@@ -84,17 +82,7 @@ const playerList = [
 ];
 
 const PlayerList = () => {
-    const theme = useTheme();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const handleAction = () => {
         navigate(`detail/${2}`);

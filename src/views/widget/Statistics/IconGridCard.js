@@ -6,15 +6,6 @@ import { Grid, Typography, useMediaQuery } from '@mui/material';
 import MainCard from 'ui-component/cards/MainCard';
 import { gridSpacing } from 'store/constant';
 
-// assets
-import LocalMallTwoToneIcon from '@mui/icons-material/LocalMallTwoTone';
-import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
-import RouterTwoToneIcon from '@mui/icons-material/RouterTwoTone';
-import ShareTwoToneIcon from '@mui/icons-material/ShareTwoTone';
-import DateRangeOutlinedIcon from '@mui/icons-material/DateRangeOutlined';
-import TodayOutlinedIcon from '@mui/icons-material/TodayOutlined';
-import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
-import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 // ===========================|| WIDGET STATISTICS - ICON GRID CARD ||=========================== //
 
 const IconGridCard = ({ content }) => {
@@ -48,7 +39,7 @@ const IconGridCard = ({ content }) => {
                     }}
                 >
                     <Grid container alignItems="center" spacing={0}>
-                        {content.map((item, index) => (
+                        {content?.map((item, index) => (
                             <Grid key={index} item xs={12} sm={6} sx={blockSX}>
                                 <Grid container alignItems="center" spacing={1} justifyContent={matchDownXs ? 'space-between' : 'center'}>
                                     <Grid item>{item.icon}</Grid>

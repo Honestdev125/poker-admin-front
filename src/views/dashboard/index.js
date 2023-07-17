@@ -2,7 +2,7 @@ import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 
 // material-ui
-import { Button, Grid, InputAdornment, Menu, MenuItem, OutlinedInput, Pagination, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import AccountCircleTwoTone from '@mui/icons-material/AccountCircleTwoTone';
 import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
 import IconGridCard from 'views/widget/Statistics/IconGridCard';

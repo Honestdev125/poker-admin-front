@@ -16,21 +16,18 @@ import {
     TableRow,
     Typography,
     TableHead,
-    Menu,
     MenuItem,
     Switch
 } from '@mui/material';
 
 // project imports
 import { useTheme } from '@mui/material/styles';
-import useAuth from 'hooks/useAuth';
 import SubCard from 'ui-component/cards/SubCard';
-import { useNavigate } from 'react-router-dom';
 import Chip from 'ui-component/extended/Chip';
 import { gridSpacing } from 'store/constant';
 
 // assets
-import { IconEdit, IconDots, IconTrash } from '@tabler/icons';
+import { IconEdit, IconTrash } from '@tabler/icons';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // progress
@@ -142,18 +139,6 @@ const PlayerDetail = () => {
     const handleChange1 = (event) => {
         setCurrency(event.target.value);
     };
-
-    const [experience, setExperience] = useState('Startup');
-
-    const [state1, setState1] = useState({
-        checkedB: false
-    });
-    const [state2, setState2] = useState({
-        checkedB: false
-    });
-    const [state3, setState3] = useState({
-        checkedB: true
-    });
 
     return (
         <Grid container spacing={3} sx={{ display: 'flex', justifyContent: 'space-around' }}>

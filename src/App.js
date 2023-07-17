@@ -16,7 +16,6 @@ import { getMenu } from 'store/slices/menu';
 
 // auth provider
 import { JWTProvider as AuthProvider } from 'contexts/JWTContext';
-import { getDataCreateSuccess, getGameTypeSuccess } from 'store/slices/tournamentList';
 
 // ==============================|| APP ||============================== //
 

@@ -1,33 +1,15 @@
 import React from 'react';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Grid,
-    MenuItem,
-    Switch,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    TextField,
-    Typography
-} from '@mui/material';
+import { Grid, MenuItem, Switch, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from '@mui/material';
 
 // project imports
-import Avatar from 'ui-component/extended/Avatar';
 
-import { useDispatch, useSelector } from 'store';
+import { useDispatch } from 'store';
 import { getUsersListStyle1 } from 'store/slices/user';
 
 // assets
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ChatBubbleTwoToneIcon from '@mui/icons-material/ChatBubbleTwoTone';
-import Chip from 'ui-component/extended/Chip';
 import { useNavigate } from 'react-router-dom';
-
-const avatarImage = require.context('assets/images/users', true);
 
 // ==============================|| USER LIST 1 ||============================== //
 

@@ -3,7 +3,7 @@ import React from 'react';
 // material-ui
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, tableCellClasses, Typography } from '@mui/material';
 // project imports
-import { useDispatch, useSelector } from 'store';
+import { useDispatch } from 'store';
 import { getUsersListStyle1 } from 'store/slices/user';
 import { styled, useTheme } from '@mui/material/styles';
 import Chip from 'ui-component/extended/Chip';

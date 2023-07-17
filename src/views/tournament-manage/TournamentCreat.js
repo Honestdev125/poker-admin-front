@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -28,10 +28,9 @@ import axios from 'utils/axios';
 const TournamentCreate = () => {
     const { gameType, tournamentType } = useSelector((state) => state.tournamentList);
     const theme = useTheme();
-    const { user, login, ...state } = useAuth();
+    const { user } = useAuth();
 
     const navigate = useNavigate();
-    const [isRebuyable, setIsRebuyable] = useState();
     const initialValues = {
         name: '',
         tournament_type_id: '',

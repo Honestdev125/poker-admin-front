@@ -2,20 +2,14 @@ import { useState } from 'react';
 
 // material-ui
 import { Grid, TextField, MenuItem, Button, Divider, Switch } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useTheme } from '@mui/material/styles';
-
-import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 // third-party
-import { PatternFormat } from 'react-number-format';
 
 // project imports
-import SubCard from 'ui-component/cards/SubCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SecondaryAction from 'ui-component/cards/CardSecondaryAction';
 import { gridSpacing } from 'store/constant';
@@ -47,14 +41,8 @@ const currencies1 = [
 ];
 
 const HoldemCreate = () => {
-    const [date1, setDate1] = useState(new Date());
-    const [date2, setDate2] = useState(new Date());
     const navigate = useNavigate();
     const theme = useTheme();
-
-    const [time, setTime] = useState(new Date());
-    const [datetime1, setDatetime1] = useState(new Date());
-    const [datetime2, setDatetime2] = useState(new Date());
     const [currency1, setCurrency1] = useState('');
     const [currency2, setCurrency2] = useState('');
     const handleChange1 = (event) => {
