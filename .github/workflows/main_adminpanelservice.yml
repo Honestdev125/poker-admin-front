@@ -54,7 +54,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Adminpanelservice'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9E135B5546DF4AF8B72DEF386E3F4B98 }}
           package: .
