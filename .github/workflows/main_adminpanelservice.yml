@@ -58,7 +58,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
-          app-name: 'Nadja-Poker-Game'
+          app-name: 'Adminpanelservice'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
           package: .
