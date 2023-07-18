@@ -53,6 +53,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
           app-name: 'Nadja-Poker-Game'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
