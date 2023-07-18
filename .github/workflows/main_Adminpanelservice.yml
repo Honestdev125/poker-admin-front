@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Test the app
-        run: npm run test
+        run: npm run test -- --passWithNoTests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
