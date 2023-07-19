@@ -54,7 +54,7 @@ export const JWTProvider = ({ children }) => {
     useEffect(() => {
         const init = () => {
             const serviceToken = window.localStorage.getItem('serviceToken');
-            if (!serviceToken || !verifyToken(serviceToken) || state.user) {
+            if (!serviceToken || !verifyToken(serviceToken) || !state.user) {
                 dispatch({
                     type: LOGOUT
                 });
