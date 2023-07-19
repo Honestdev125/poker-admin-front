@@ -52,27 +52,9 @@ export const JWTProvider = ({ children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const init = async () => {
-            try {
-                const serviceToken = window.localStorage.getItem('serviceToken');
-                if (serviceToken && verifyToken(serviceToken)) {
-                    setSession(serviceToken);
-                    const response = await axios.get('/account/me');
-                    const { user } = response.data;
-                    dispatch({
-                        type: LOGIN,
-                        payload: {
-                            isLoggedIn: true,
-                            user
-                        }
-                    });
-                } else {
-                    dispatch({
-                        type: LOGOUT
-                    });
-                }
-            } catch (err) {
-                console.error(err);
+        const init = () => {
+            const serviceToken = window.localStorage.getItem('serviceToken');
+            if (!serviceToken || !verifyToken(serviceToken) || state.user) {
                 dispatch({
                     type: LOGOUT
                 });
