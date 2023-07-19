@@ -1,5 +1,5 @@
 import { useTheme } from '@mui/material/styles';
-import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 
 // project imports
 import AuthWrapper1 from '../AuthWrapper1';
@@ -55,11 +55,8 @@ const Login = () => {
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item xs={12}>
+                                    <Grid item xs={12} sx={{ mb: 2 }}>
                                         <AuthLogin />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Divider />
                                     </Grid>
                                 </Grid>
                             </AuthCardWrapper>
