@@ -16,16 +16,20 @@ import { getMenu } from 'store/slices/menu';
 
 // auth provider
 import { JWTProvider as AuthProvider } from 'contexts/JWTContext';
+import { useNavigate } from 'react-router-dom';
 
 // ==============================|| APP ||============================== //
 
 const App = () => {
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
+        navigate('login');
         dispatch(getMenu()).then(() => {
             setLoading(true);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (!loading) return <Loader />;
