@@ -28,18 +28,18 @@ const icons = {
 
 const build = {
     id: 'dashboard',
-    // title: <FormattedMessage id="build" />,
+    // title: <FormattedMessage id="dashboard" />,
     icon: icons.IconDashboard,
     type: 'group',
     children: [
-        // {
-        //     id: 'Players',
-        //     // title: <FormattedMessage id="Players" />,
-        //     type: 'item',
-        //     // url: '/dashboard/player',
-        //     // icon: icons.IconUsers,
-        //     breadcrumbs: false
-        // },
+        {
+            id: 'dashboard',
+            title: <FormattedMessage id="dashboard" />,
+            type: 'item',
+            url: '/dashboard/default',
+            icon: icons.IconDashboard,
+            breadcrumbs: false
+        },
         {
             id: 'players',
             title: <FormattedMessage id="players" />,
