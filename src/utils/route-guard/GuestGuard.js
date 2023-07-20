@@ -20,8 +20,6 @@ const GuestGuard = ({ children }) => {
     useEffect(() => {
         if (isLoggedIn) {
             navigate(DASHBOARD_PATH, { replace: true });
-        } else {
-            navigate('login', { replace: true });
         }
     }, [isLoggedIn, navigate]);
 

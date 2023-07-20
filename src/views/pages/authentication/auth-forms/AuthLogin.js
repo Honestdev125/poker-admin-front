@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -34,7 +33,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 // ===============================|| JWT LOGIN ||=============================== //
 
-const JWTLogin = ({ loginProp, ...others }) => {
+const JWTLogin = () => {
     const theme = useTheme();
 
     const { login } = useAuth();
@@ -81,7 +80,7 @@ const JWTLogin = ({ loginProp, ...others }) => {
             }}
         >
             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
-                <form noValidate onSubmit={handleSubmit} {...others}>
+                <form noValidate onSubmit={handleSubmit}>
                     <FormControl fullWidth error={Boolean(touched.email && errors.email)} sx={{ ...theme.typography.customInput }}>
                         <InputLabel htmlFor="outlined-adornment-email-login">Email Address / Username</InputLabel>
                         <OutlinedInput
@@ -143,22 +142,20 @@ const JWTLogin = ({ loginProp, ...others }) => {
                                         color="primary"
                                     />
                                 }
-                                label="Keep me logged in for 2 weeks"
+                                label="Keep me logged in"
                             />
                         </Grid>
-                    </Grid>
-                    <Grid item>
-                        <Typography
-                            variant="subtitle1"
-                            component={Link}
-                            to={
-                                loginProp ? `/pages/forgot-password/forgot-password${loginProp}` : '/pages/forgot-password/forgot-password3'
-                            }
-                            color="secondary"
-                            sx={{ textDecoration: 'none' }}
-                        >
-                            Forgot your Password?
-                        </Typography>
+                        <Grid item>
+                            <Typography
+                                variant="subtitle1"
+                                component={Link}
+                                to="/forgot-password"
+                                color="secondary"
+                                sx={{ textDecoration: 'none' }}
+                            >
+                                Forgot your Password?
+                            </Typography>
+                        </Grid>
                     </Grid>
 
                     {errors.submit && (
@@ -166,17 +163,9 @@ const JWTLogin = ({ loginProp, ...others }) => {
                             <FormHelperText error>{errors.submit}</FormHelperText>
                         </Box>
                     )}
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
+                    <Box sx={{ mt: 2 }}>
                         <AnimateButton>
-                            <Button
-                                color="secondary"
-                                disabled={isSubmitting}
-                                fullWidth
-                                size="large"
-                                type="submit"
-                                variant="contained"
-                                sx={{ width: '150px' }}
-                            >
+                            <Button color="secondary" disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained">
                                 Log in
                             </Button>
                         </AnimateButton>
@@ -185,10 +174,6 @@ const JWTLogin = ({ loginProp, ...others }) => {
             )}
         </Formik>
     );
-};
-
-JWTLogin.propTypes = {
-    loginProp: PropTypes.number
 };
 
 export default JWTLogin;

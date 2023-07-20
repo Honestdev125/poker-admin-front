@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
-import { Grid, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Divider, Grid, Stack, Typography, useMediaQuery } from '@mui/material';
 
 // project imports
 import AuthWrapper1 from '../AuthWrapper1';
 import AuthCardWrapper from '../AuthCardWrapper';
-import Logo from 'ui-component/Logo';
 import AuthResetPassword from '../auth-forms/AuthResetPassword';
 import AuthFooter from 'ui-component/cards/AuthFooter';
 
@@ -27,11 +24,6 @@ const ResetPassword = () => {
                         <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
                             <AuthCardWrapper>
                                 <Grid container spacing={2} alignItems="center" justifyContent="center">
-                                    <Grid item sx={{ mb: 3 }}>
-                                        <Link to="#" aria-label="theme-logo">
-                                            <Logo />
-                                        </Link>
-                                    </Grid>
                                     <Grid item xs={12}>
                                         <Grid
                                             container
@@ -39,7 +31,7 @@ const ResetPassword = () => {
                                             alignItems="center"
                                             justifyContent="center"
                                         >
-                                            <Grid item>
+                                            <Grid item mt={4}>
                                                 <Stack alignItems="center" justifyContent="center" spacing={1}>
                                                     <Typography
                                                         color={theme.palette.secondary.main}
@@ -61,6 +53,16 @@ const ResetPassword = () => {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <AuthResetPassword />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Divider />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Grid item container direction="column" alignItems="center" xs={12}>
+                                            <Typography component={Link} to="/login" variant="subtitle1" sx={{ textDecoration: 'none' }}>
+                                                Already have an account?
+                                            </Typography>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </AuthCardWrapper>

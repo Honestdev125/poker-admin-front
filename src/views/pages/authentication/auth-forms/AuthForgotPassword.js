@@ -10,9 +10,9 @@ import { Formik } from 'formik';
 
 // project imports
 import AnimateButton from 'ui-component/extended/AnimateButton';
-import useAuth from 'hooks/useAuth';
 import useScriptRef from 'hooks/useScriptRef';
 import { openSnackbar } from 'store/slices/snackbar';
+import axios from 'utils/axios';
 
 // ========================|| FIREBASE - FORGOT PASSWORD ||======================== //
 
@@ -22,48 +22,46 @@ const AuthForgotPassword = ({ ...others }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { resetPassword } = useAuth();
-
     return (
         <Formik
             initialValues={{
                 email: '',
-                password: '',
                 submit: null
             }}
             validationSchema={Yup.object().shape({
                 email: Yup.string().email('Must be a valid email').max(255).required('Email is required')
             })}
-            onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-                try {
-                    await resetPassword(values.email);
-
-                    if (scriptedRef.current) {
-                        setStatus({ success: true });
-                        setSubmitting(false);
-                        dispatch(
-                            openSnackbar({
-                                open: true,
-                                message: 'Check mail for reset password link',
-                                variant: 'alert',
-                                alert: {
-                                    color: 'success'
-                                },
-                                close: false
-                            })
-                        );
-                        setTimeout(() => {
-                            navigate('/login', { replace: true });
-                        }, 1500);
-                    }
-                } catch (err) {
-                    console.error(err);
-                    if (scriptedRef.current) {
-                        setStatus({ success: false });
-                        setErrors({ submit: err.message });
-                        setSubmitting(false);
-                    }
-                }
+            onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
+                axios
+                    .post('/auth/forgotpassword', values)
+                    .then((response) => {
+                        if (response) {
+                            setStatus({ success: true });
+                            setSubmitting(false);
+                            dispatch(
+                                openSnackbar({
+                                    open: true,
+                                    message: 'Check mail for reset password link',
+                                    variant: 'alert',
+                                    alert: {
+                                        color: 'success'
+                                    },
+                                    close: false
+                                })
+                            );
+                            setTimeout(() => {
+                                navigate('/login', { replace: true });
+                            }, 1500);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        if (scriptedRef.current) {
+                            setStatus({ success: false });
+                            setErrors({ submit: error.message });
+                            setSubmitting(false);
+                        }
+                    });
             }}
         >
             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
