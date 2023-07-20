@@ -90,7 +90,7 @@ export const JWTProvider = ({ children }) => {
     const register = async (email, password, firstName, lastName) => {
         // todo: this flow need to be recode as it not verified
         const id = chance.bb_pin();
-        const response = await axios.post('/account/register', {
+        const response = await axios.post('/api/account/register', {
             id,
             email,
             password,
