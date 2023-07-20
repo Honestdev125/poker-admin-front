@@ -27,14 +27,14 @@ const icons = {
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
 
 const build = {
-    id: 'dashboard',
+    // id: 'dashboard',
     // title: <FormattedMessage id="dashboard" />,
-    icon: icons.IconDashboard,
+    // icon: icons.IconDashboard,
     type: 'group',
     children: [
         {
-            id: 'dashboard',
-            title: <FormattedMessage id="dashboard" />,
+            id: 'dashboardc',
+            title: <FormattedMessage id="dashboardc" />,
             type: 'item',
             url: '/dashboard/default',
             icon: icons.IconDashboard,
