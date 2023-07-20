@@ -63,7 +63,7 @@ const JWTLogin = () => {
             })}
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                 try {
-                    await login(values.email, values.password);
+                    await login(values.email);
 
                     if (scriptedRef.current) {
                         setStatus({ success: true });
