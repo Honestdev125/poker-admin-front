@@ -34,7 +34,6 @@ const TournamentList = () => {
     const [reload, setReload] = useState(false);
     const [delItemId, setDelItemId] = useState();
     const dispatch = useDispatch();
-    const { data, gameType } = useSelector((state) => state.tournamentList);
     const handleEdit = (value) => {
         navigate('/tournamentDetail');
         dispatch(getDetailIdSuccess(value));
@@ -69,6 +68,7 @@ const TournamentList = () => {
         }
         return temp;
     };
+
     useEffect(() => {
         dispatch(getGameTypeSuccess());
         dispatch(getTournamentTypeSuccess());

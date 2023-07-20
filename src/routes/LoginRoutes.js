@@ -10,6 +10,7 @@ import Loadable from 'ui-component/Loadable';
 const AuthLogin = Loadable(lazy(() => import('views/pages/authentication/authentication3/Login3')));
 const AuthRegister = Loadable(lazy(() => import('views/pages/authentication/authentication3/Register3')));
 const AuthForgotPassword = Loadable(lazy(() => import('views/pages/authentication/authentication3/ForgotPassword3')));
+const AuthResetPassword = Loadable(lazy(() => import('views/pages/authentication/authentication3/ResetPassword3')));
 
 // ==============================|| AUTH ROUTING ||============================== //
 
@@ -32,8 +33,12 @@ const LoginRoutes = {
             element: <AuthRegister />
         },
         {
-            path: '/forgot',
+            path: '/forgot-password',
             element: <AuthForgotPassword />
+        },
+        {
+            path: '/reset-password',
+            element: <AuthResetPassword />
         }
     ]
 };

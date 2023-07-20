@@ -24,6 +24,7 @@ import { gridSpacing } from 'store/constant';
 import { useSelector } from 'store';
 import useAuth from 'hooks/useAuth';
 import axios from 'utils/axios';
+import useAuth from 'hooks/useAuth';
 
 const TournamentCreate = () => {
     const { gameType, tournamentType } = useSelector((state) => state.tournamentList);
@@ -82,7 +83,6 @@ const TournamentCreate = () => {
         late_registration: Yup.number().required('* Late Registration is required'),
         is_rebuyable: Yup.string().required('* Rebuy is required')
     });
-
     const onSubmit = (values, { resetForm }) => {
         const createValue = { ...values, admin_user_id: user.id };
         const draftGameId = gameType.find((item) => item.name === values.game_type_name);

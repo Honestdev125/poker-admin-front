@@ -11,9 +11,6 @@ const initialState = {
     error: null,
     data: [],
     gameType: [],
-    tournamentType: [],
-    detailId: {},
-    totalCount: ''
 };
 
 const slice = createSlice({
@@ -36,9 +33,6 @@ const slice = createSlice({
         },
         getTournamnetType(state, action) {
             state.tournamentType = action.payload;
-        },
-        getDetailId(state, action) {
-            state.detailId = action.payload;
         }
     }
 });
@@ -67,26 +61,10 @@ export function getDataCreateSuccess(pageNum, rowsPerPage, searchKey) {
 export function getGameTypeSuccess() {
     return async () => {
         try {
-            const response = await axios.get('/game/type/getlist');
-            dispatch(slice.actions.getGameType(response.data.data));
-            console.log(response.data.data);
+
         } catch (error) {
             dispatch(slice.actions.hasError(error));
         }
     };
 }
-
-export function getTournamentTypeSuccess() {
-    return async () => {
-        try {
-            const response = await axios.get('/tournament/type/getlist');
-            dispatch(slice.actions.getTournamnetType(response.data.data));
-        } catch (error) {
-            dispatch(slice.actions.hasError(error));
-        }
-    };
-}
-
-export function getDetailIdSuccess(value) {
-    dispatch(slice.actions.getDetailId(value));
 }

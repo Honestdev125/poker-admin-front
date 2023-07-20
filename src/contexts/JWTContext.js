@@ -12,7 +12,7 @@ import accountReducer from 'store/accountReducer';
 // project imports
 import Loader from 'ui-component/Loader';
 import axios from 'utils/axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const chance = new Chance();
 
@@ -49,20 +49,29 @@ const JWTContext = createContext(null);
 
 export const JWTProvider = ({ children }) => {
     const [state, dispatch] = useReducer(accountReducer, initialState);
+    const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         const init = () => {
             const serviceToken = window.localStorage.getItem('serviceToken');
             if (!serviceToken || !verifyToken(serviceToken) || !state.user) {
-                dispatch({
-                    type: LOGOUT
-                });
-                navigate('login');
+                if (
+                    location.pathname.includes('/forgot-password') ||
+                    location.pathname.includes('/reset-password') ||
+                    location.pathname.includes('/login')
+                ) {
+                    dispatch({
+                        type: LOGOUT
+                    });
+                } else {
+                    navigate('login');
+                }
             }
         };
 
         init();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate, state.user]);
 
     const login = async (email, password) => {
@@ -81,7 +90,7 @@ export const JWTProvider = ({ children }) => {
     const register = async (email, password, firstName, lastName) => {
         // todo: this flow need to be recode as it not verified
         const id = chance.bb_pin();
-        const response = await axios.post('/account/register', {
+        const response = await axios.post('/api/account/register', {
             id,
             email,
             password,
